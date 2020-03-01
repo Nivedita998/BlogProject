@@ -29,6 +29,17 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'ckeditor',
+    'crispy_forms',
+    'tinymce',
+    'posts',
+    'marketing',
+    'sslserver',
+
+]
+   
   
 
     
@@ -41,12 +52,8 @@ INSTALLED_APPS = [
 
 
 
-    'crispy_forms',
-    'tinymce',
-    'posts',
-    'marketing',
-   
-]
+    
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -62,6 +69,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blogtemplateapp.urls'
+
 #r'C:\Users\mitali\blogtemplateapp\blogtemplateapp\templates'
 TEMPLATES = [
     {
@@ -179,3 +187,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL="/"

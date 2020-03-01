@@ -1,26 +1,23 @@
 from django import forms
-from tinymce.widgets import TinyMCE
+from ckeditor.widgets import CKEditorWidget
 #from tinymce import TinyMCE
 from .models import Post ,Comment
 
-class TinyMCEWidget(TinyMCE):
-    def use_required_attribute(self, *args):
-        return False
+# class TinyMCEWidget(TinyMCE):
+#     def use_required_attribute(self, *args):
+#         return False
 
 
 class PostForm(forms.ModelForm):
 
 
-    content = forms.CharField(
-        widget=TinyMCE(
-            attrs={'required': False, 'cols': 30, 'rows': 10}
-        )
-    )
+    content =forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Post
-        fields =('title', 'overview', 'thumbnail', 
+        fields =('title', 'overview','content', 'thumbnail', 
         'categories', 'featured', 'previous_post', 'next_post')
+        
 
 
 class CommentForm(forms.ModelForm):

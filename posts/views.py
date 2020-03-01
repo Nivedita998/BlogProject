@@ -38,11 +38,10 @@ def get_category_count():
 
 
 
-def index(request):
-    featured=Post.objects.filter(featured=True)
+def index(request ):
+    featured=Post.objects.filter(featured=True)[0:3]
     latest=Post.objects.order_by('-timestamp')[0:3]
-    
-
+   
 #for newsletter
     if request.method=="POST":
         email=request.POST["email"]
@@ -53,7 +52,8 @@ def index(request):
 
     context={
         'object_list':featured,
-        'latest':latest
+        'latest':latest,
+        
     }
 
     
